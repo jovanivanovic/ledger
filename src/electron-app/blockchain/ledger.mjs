@@ -12,7 +12,7 @@ class Ledger {
         this.initialized = false;
     }
 
-    initialize(pushCallback = null) {
+    initialize(pushCallback = null, verifyCallback = null) {
         let mongoLoaded = false;
 
         mongo.connect(this.mongo.url, {
@@ -44,7 +44,7 @@ class Ledger {
                         items.forEach((item, index) => {
                             pushCallback(item);
                         });
-                    })
+                    });
                 }
 
                 mongoLoaded = true;
@@ -52,7 +52,7 @@ class Ledger {
             });
         });
 
-        this.interval = setInterval(() => {
+        this.producerInterval = setInterval(() => {
             if (mongoLoaded) {
                 if (this.queue.length < 1) {
                     this.pushToBlockchain(null, pushCallback);
@@ -66,6 +66,13 @@ class Ledger {
                 }
             }
         }, 500);
+
+        this.verificationInterval = setInterval(() => {
+            this.mongo.collection.find().toArray((err, items) => {
+                this.blockchain.chain = items;
+                verifyCallback(this.blockchain.verify());
+            });
+        }, 3 * 60 * 1000);
     }
 
     push(data) {

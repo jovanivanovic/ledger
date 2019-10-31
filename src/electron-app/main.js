@@ -57,6 +57,8 @@ app.on("ready", () => {
 			}
 
 			mainWindow.webContents.send('notify-block', block);
+		}, (verify) => {
+			mainWindow.webContents.send('verification', verify);
 		});
 
 		ipcMain.on('push-block', (event, data) => {

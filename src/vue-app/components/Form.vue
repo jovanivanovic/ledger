@@ -75,17 +75,18 @@
 
             button {
                 background: transparent;
-                border: 2px solid #28a745;
+                border: 2px solid #17a2b8;
                 float: right;
-                color: #28a745;
                 border-radius: 3px;
                 text-transform: uppercase;
                 padding: 5px 20px;
                 cursor: pointer;
                 transition: all ease-in-out .3s;
+                margin-left: 10px;
+                color: #17a2b8;
 
                 &:hover {
-                    background-color: #28a745;
+                    background-color: #17a2b8;
                     color: white;
                 }
             }

@@ -23,7 +23,13 @@
 			Log,
 			Explorer
 		},
-		mounted() {}
+		mounted() {
+			const ipc = require('electron').ipcRenderer;
+
+			ipc.on('verification', (event, verify) => {
+				console.log(verify);
+			});
+		}
 	};
 </script>
 
@@ -45,17 +51,7 @@
 		padding: 0;
 		margin: 0;
 	}
-
-	body[einu-flow] einu-control-group.list-menu::-webkit-scrollbar { width: 14px; height: 18px; }
-	body[einu-flow] einu-control-group.list-menu::-webkit-scrollbar-button { display: none; }
-	body[einu-flow] einu-control-group.list-menu::-webkit-scrollbar-thumb { background: rgba(186, 24, 42, 0); background-clip: padding-box; height: 6px; border: 4px solid rgba(0, 0, 0, 0); -webkit-border-radius: 7px; opacity: 0.5; transition: all ease-in-out .3s; }
-	body[einu-flow] einu-control-group.list-menu:hover::-webkit-scrollbar-thumb { background: rgba(186, 24, 42, 0.5); background-clip: padding-box; height: 6px; border: 4px solid rgba(0, 0, 0, 0); -webkit-border-radius: 7px; opacity: 0.5; }
-	body[einu-flow] einu-control-group.list-menu::-webkit-scrollbar-thumb:hover { opacity: 1; }
-	body[einu-flow] einu-control-group.list-menu::-webkit-scrollbar-track { background: transparent; }
-	body[einu-flow] einu-control-group.list-menu::-webkit-scrollbar-track-piece { background: transparent; }
-	body[einu-flow] einu-control-group.list-menu::-webkit-scrollbar-corner { display: none; }
-	body[einu-flow] einu-control-group.list-menu::-webkit-resizer { display: none; }
-
+	
 	.scrollbar {
 		&::-webkit-scrollbar {
 			width: 14px; 

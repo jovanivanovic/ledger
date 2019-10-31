@@ -1,4 +1,5 @@
 import Block from './block.mjs';
+import sha256 from 'js-sha256';
 import msgpack from 'msgpack5';
 
 class Blockchain {
@@ -30,6 +31,27 @@ class Blockchain {
         return this.chain.find((x) => {
             return x.hash == hash;
         })
+    }
+
+    verify() {
+        let faultBlock = null;
+        let BreakException = {};
+
+        try {
+            this.chain.forEach((block, index) => {
+                let hash = block.hash;
+                let rehash = sha256(block.index + block.timestamp + block.data + block.previousHash);
+    
+                if (hash != rehash) {
+                    faultBlock = block;
+                    throw BreakException;
+                }
+            })
+        } catch(e) {
+            console.log(e);
+        }
+
+        return faultBlock != null ? faultBlock : true;
     }
 }
 
