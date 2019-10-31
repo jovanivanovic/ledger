@@ -84,6 +84,10 @@ $ npm run postinstall
 │   └── vue-app                     # directory for Vue app distributables
 ├── src                             # directory for source code
 │   ├── electron-app                # directory for Electron app source code
+|   |   ├── blockchain              # directory for the Blockchain logic
+|   |   |   ├── block.mjs           # blockchain's Block class
+|   |   |   ├── blockchain.mjs      # blockchain
+|   |   |   └── ledger.mjs          # blockchain initializer
 │   │   ├── icon.png                # app icon for Electron app
 │   │   └── main.js                 # main Electron app file
 │   └── vue-app                     # directory for Vue app source code
