@@ -1,0 +1,8 @@
+version: 1.3.0
+files:
+  - url: electron-vue-boilerplate-setup-1.3.0.exe
+    sha512: 8AdgtD1EFZxSvETw9Bu5eO5NDQ6offIjv2JZhbu05tpdRqktqRjVYxfwzoGj+169oCCZx/asmUXJ32G3TDZpTA==
+    size: 40880011
+path: electron-vue-boilerplate-setup-1.3.0.exe
+sha512: 8AdgtD1EFZxSvETw9Bu5eO5NDQ6offIjv2JZhbu05tpdRqktqRjVYxfwzoGj+169oCCZx/asmUXJ32G3TDZpTA==
+releaseDate: '2019-10-30T20:47:04.056Z'

@@ -1,0 +1,5 @@
+directories:
+  output: build/
+  buildResources: build
+appId: app.id
+electronVersion: 4.2.12

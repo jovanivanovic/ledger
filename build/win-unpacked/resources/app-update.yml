@@ -1,0 +1,4 @@
+owner: oliverfindl
+repo: electron-vue-boilerplate
+provider: github
+updaterCacheDirName: electron-vue-boilerplate-updater
